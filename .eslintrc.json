@@ -21,6 +21,9 @@
     "jest": true
   },
   "rules": {
+
+    // "useTabs": 0,
+
     "react-hooks/rules-of-hooks": "error",
     "no-debugger": 0,
     "no-alert": 0,
@@ -90,7 +93,8 @@
       {
         "trailingComma": "none",
         "singleQuote": true,
-        "printWidth": 100
+        "printWidth": 100,
+        "endOfLine":"auto"
       }
     ],
     "jsx-a11y/href-no-hash": "off",
