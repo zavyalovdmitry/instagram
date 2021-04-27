@@ -28,7 +28,7 @@ export default function SignUp() {
           .createUserWithEmailAndPassword(emailAddress, password);
 
         await createdUserResult.user.updateProfile({
-          dipslayName: username
+          displayName: username
         });
 
         await firebase.firestore().collection('users').add({
