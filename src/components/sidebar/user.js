@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 
 export default function User({ username, fullName }) {
+  console.log(username, fullName);
   return !username || !fullName ? (
     <Skeleton count={1} height={61} />
   ) : (
@@ -25,8 +26,8 @@ export default function User({ username, fullName }) {
 // export default memo(User);
 
 User.propTypes = {
-  username: PropTypes.string.isRequired,
-  fullName: PropTypes.string.isRequired
+  username: PropTypes.string,
+  fullName: PropTypes.string
 };
 
 // User.whyDidYouRender = true;
