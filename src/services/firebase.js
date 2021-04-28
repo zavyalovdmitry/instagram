@@ -23,7 +23,7 @@ export async function getSuggestedProfiles(userId, following) {
   const result = await firebase.firestore().collection('users').limit(10).get();
   // console.log(result);
   return result.docs
-    .map((user) => ({ ...user.data(), docId: userId }))
+    .map((user) => ({ ...user.data(), docId: user.id }))
     .filter((profile) => profile.userId !== userId && !following.includes(profile.userId));
 }
 
@@ -32,7 +32,8 @@ export async function updateLoggedInUserFollowing(
   profileId,
   isFollowingProfile
 ) {
-  return firebase.firestore
+  return firebase
+    .firestore()
     .collection('users')
     .doc(loggedInUserDocId)
     .update({
@@ -47,11 +48,12 @@ export async function updateFollowedUserFollowers(
   loggedInUserDocId,
   isFollowingProfile
 ) {
-  return firebase.firestore
+  return firebase
+    .firestore()
     .collection('users')
     .doc(profileDocId)
     .update({
-      following: isFollowingProfile
+      followers: isFollowingProfile
         ? FieldValue.arrayRemove(loggedInUserDocId)
         : FieldValue.arrayUnion(loggedInUserDocId)
     });
