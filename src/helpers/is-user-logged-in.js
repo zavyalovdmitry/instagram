@@ -1,22 +1,21 @@
 import PropTypes from 'prop-types';
 import { Route, Redirect, Router } from 'react-router-dom';
-import * as ROUTES from '../constants/routes';
 
-export default function ProtectedRoute({ user, children,  ...rest }) {
+export default function IsUserLoggedIn({ user, loggeInPath, children, ...rest }) {
   return (
     <Route
       {...rest}
       render={({ location }) => {
-        if (user) {
-          return(children);
+        if (!user) {
+          return children;
         }
 
-        if (!user) {
+        if (user) {
           return (
             <Redirect
               to={{
-                pathname: ROUTES.LOGIN, 
-                state: { from: location}
+                pathname: loggeInPath,
+                state: { from: location }
               }}
             />
           );
@@ -25,10 +24,11 @@ export default function ProtectedRoute({ user, children,  ...rest }) {
         return null;
       }}
     />
-  )
+  );
 }
 
-ProtectedRoute.propTypes = {
+IsUserLoggedIn.propTypes = {
   user: PropTypes.object,
+  loggeInPath: PropTypes.string.isRequired,
   children: PropTypes.object.isRequired
-}
+};
