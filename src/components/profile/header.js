@@ -30,6 +30,7 @@ export default function Header({
 
     if (user.username && profileUserId) {
       isLoggedInUserFollowingProfile();
+      console.log(user.username, profileUserId);
     }
   }, [user.username, profileUserId]);
 
@@ -53,7 +54,7 @@ export default function Header({
               type="button"
               onClick={handleToggleFollow}
             >
-              {isFollowingProfile ? 'UnFollow' : 'Follow'}
+              {isFollowingProfile ? 'Unfollow' : 'Follow'}
             </button>
           )}
         </div>
