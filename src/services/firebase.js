@@ -35,7 +35,6 @@ export async function getUserByUserId(userId) {
 
 export async function getSuggestedProfiles(userId, following) {
   const result = await firebase.firestore().collection('users').limit(10).get();
-  // console.log(result);
   return result.docs
     .map((user) => ({ ...user.data(), docId: user.id }))
     .filter((profile) => profile.userId !== userId && !following.includes(profile.userId));
@@ -93,11 +92,10 @@ export async function getPhotos(userId, following) {
       }
       const user = await getUserByUserId(photo.userId);
       const { username } = user[0];
-      // console.log('3333', userId);
       return { username, ...photo, userLikedPhoto };
     })
   );
-  // console.log(photosWithUserDetails);
+
   return photosWithUserDetails;
 }
 
