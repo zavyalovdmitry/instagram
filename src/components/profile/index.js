@@ -28,9 +28,13 @@ export default function Profile({ user }) {
 
   return (
     <>
-      <Header />
+      <Header
+        photosCpunt={photosCollection ? photosCollection.length : 0}
+        profile={profile}
+        followerCount={followerCount}
+        setFollowerCount={dispatch}
+      />
       <Photos photos={photosCollection} />
-      {user.username}
     </>
   );
 }
@@ -44,5 +48,5 @@ Profile.propTypes = {
     fullName: PropTypes.string.isRequired,
     userId: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired
-  }).isRequired
+  })
 };
