@@ -14,17 +14,13 @@ export default function usePhotos() {
       let followedUserPhotos = [];
 
       if (following.length > 0) {
-        // console.log('444');
         followedUserPhotos = await getPhotos(userId, following);
-        // setPhotos(followedUserPhotos);
       }
       followedUserPhotos.sort((a, b) => b.dateCreated - a.dateCreated);
       setPhotos(followedUserPhotos);
     }
-    // console.log(photos);
-    // if (userId) {
+
     getTimelinePhotos();
-    // }
   }, [userId]);
 
   return { photos };

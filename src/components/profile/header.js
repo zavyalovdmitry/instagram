@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Skeleton from 'react-loading-skeleton';
 import useUser from '../../hooks/use-user';
 import { isUserFollowingProfile, toggleFollow } from '../../services/firebase';
-import Photos from './photos';
 
 export default function Header({
   photosCount,
@@ -27,7 +26,7 @@ export default function Header({
     setFollowerCount({
       followerCount: isFollowingProfile ? followerCount - 1 : followerCount + 1
     });
-    // console.log('followerCount', followerCount);
+
     await toggleFollow(isFollowingProfile, user.docId, profileDocId, profileUserId, user.userId);
   };
 
@@ -39,7 +38,6 @@ export default function Header({
     console.log('init followerCount', followerCount);
     if (user.username && profileUserId) {
       isLoggedInUserFollowingProfile();
-      // console.log(user.username, profileUserId);
     }
   }, [user.username, profileUserId]);
 

@@ -21,9 +21,6 @@
     "jest": true
   },
   "rules": {
-
-    // "useTabs": 0,
-
     "react-hooks/rules-of-hooks": "error",
     "no-debugger": 0,
     "no-alert": 0,

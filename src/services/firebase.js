@@ -1,4 +1,3 @@
-import { func } from 'prop-types';
 import { firebase, FieldValue } from '../lib/firebase';
 
 export async function doesUsernameExist(username) {
@@ -101,13 +100,11 @@ export async function getPhotos(userId, following) {
 
 export async function getUserPhotosByUsername(username) {
   const [user] = await getUserByUsername(username);
-  // console.log(user.userId);
   const result = await firebase
     .firestore()
     .collection('photos')
     .where('userId', '==', user.userId)
     .get();
-  // console.log(result);
   return result.docs.map((item) => ({
     ...item.data(),
     docId: item.id

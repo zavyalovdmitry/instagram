@@ -1,5 +1,4 @@
 /* eslint-disable no-plusplus */
-// NOTE: replace 'kYdgsPhlgtd8zvLEZ7qfNxMSzey2' with your Firebase auth user id (can be taken from Firebase)
 export function seedDatabase(firebase) {
   const users = [
     {

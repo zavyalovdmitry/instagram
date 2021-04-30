@@ -22,7 +22,6 @@ export default function Profile({ user }) {
       const photos = await getUserPhotosByUsername(user.username);
       dispatch({ profile: user, photosCollection: photos, followerCount: user.followers.length });
     }
-    // console.log(photosCollection);
     getProfileInfoAndPhotos();
   }, [user.username]);
 

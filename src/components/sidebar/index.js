@@ -6,7 +6,7 @@ export default function Sidebar() {
   const {
     user: { docId, fullName, username, userId, following }
   } = useUser();
-  // console.log(fullName, username, userId);
+
   return (
     <div className="p-4">
       <User username={username} fullName={fullName} />

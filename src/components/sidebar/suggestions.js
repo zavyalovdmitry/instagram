@@ -15,7 +15,7 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
       suggestedProfiles();
     }
   }, [userId]);
-  // console.log([profiles]);aa===
+
   return !profiles ? (
     <Skeleton count={1} height={150} className="mt-5" />
   ) : profiles.length > 0 ? (
@@ -37,8 +37,6 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
       </div>
     </div>
   ) : null;
-
-  // return null;
 }
 
 Suggestions.propTypes = {
