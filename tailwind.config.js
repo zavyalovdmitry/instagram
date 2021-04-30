@@ -13,7 +13,7 @@ module.exports = {
             },
             black: {
                 ligth: '#262626',
-                faded: '#000059'
+                faded: '#00000059'
             },
             gray: {
                 base: '#616161',
@@ -24,5 +24,8 @@ module.exports = {
                 primary: '#ed4956'
             }
         }
+    },
+    variants: {
+        display: ['group-hover']
     }
 };
