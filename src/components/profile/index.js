@@ -7,7 +7,7 @@ import { getUserPhotosByUsername } from '../../services/firebase';
 const reducer = (state, newState) => ({ ...state, ...newState });
 const initialState = {
   profile: {},
-  photosCollection: [],
+  photosCollection: null,
   followerCount: 0
 };
 
@@ -22,14 +22,14 @@ export default function Profile({ user }) {
       const photos = await getUserPhotosByUsername(user.username);
       dispatch({ profile: user, photosCollection: photos, followerCount: user.followers.length });
     }
-
+    // console.log(photosCollection);
     getProfileInfoAndPhotos();
   }, [user.username]);
 
   return (
     <>
       <Header
-        photosCpunt={photosCollection ? photosCollection.length : 0}
+        photosCount={photosCollection ? photosCollection.length : 0}
         profile={profile}
         followerCount={followerCount}
         setFollowerCount={dispatch}
