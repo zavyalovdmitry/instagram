@@ -70,13 +70,18 @@ export default function Login() {
             </button>
           </form>
         </div>
-        <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary rounded">
+        <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary mb-4 rounded">
           <p className="text-sm">
             Don't have an account?{` `}
             <Link to={ROUTES.SIGN_UP} className="font-bold text-blue-medium">
               Sign Up
             </Link>
           </p>
+        </div>
+        <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary rounded">
+          <p className="text-sm font-bold">use to try</p>
+          <p className="text-sm">email: user@test.com</p>
+          <p className="text-sm">password: pass1234</p>
         </div>
       </div>
     </div>
